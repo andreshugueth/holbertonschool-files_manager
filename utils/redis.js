@@ -16,18 +16,19 @@ class RedisClient {
   }
 
   async get(key) {
-    return await this.getClientInfo(key)
+    const value = await this.getClientInfo(key);
+    return value;
   }
 
   async set(key, value, time) {
-    return await this.client.setex(key, time, value);
+    this.client.setex(key, time, value);
   }
 
   async del(key) {
-    return await this.client.del(key);
+    this.client.del(key);
   }
 }
 
-const redisClient = new RedisClient()
+const redisClient = new RedisClient();
 
 export default redisClient;
