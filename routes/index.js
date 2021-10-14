@@ -1,16 +1,15 @@
-import express from "express";
-import AppController from "../controllers/AppController";
-
+import express from 'express';
+import AppController from '../controllers/AppController';
 
 function appRoutes(app) {
   const router = express.Router();
-  app.use("/", router);
+  app.use('/', router);
 
-  router.get("/status", (req, res) => {
+  router.get('/status', (req, res) => {
     AppController.getStatus(req, res);
   });
 
-  router.get("/stats", (req, res) => {
+  router.get('/stats', (req, res) => {
     AppController.getStats(req, res);
   });
 }
